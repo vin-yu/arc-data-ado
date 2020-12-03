@@ -10,13 +10,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 - script: |
     echo sudo
@@ -38,6 +31,7 @@ steps:
 
 - script: |
     docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=StrongPASSWORD1' --name 'sql1' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+    sleep 30
   displayName: 'dummy test with mssql'
 
 - script: /opt/mssql-tools/bin/sqlcmd -U$(USERNAME) -P$(PASSWORD) -Slocalhost -Q "Select @@version"
