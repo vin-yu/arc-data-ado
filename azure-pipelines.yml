@@ -36,4 +36,10 @@ steps:
 - script: /opt/mssql-tools/bin/sqlcmd -?
   displayName: 'check sqlcmd version'
 
+- script: /opt/mssql-tools/bin/sqlcmd -?
+  displayName: 'check sqlcmd version'
+
+- script: echo $(USERNAME) $(password)
+  displayName: 'check sqlcmd version'
+
 
