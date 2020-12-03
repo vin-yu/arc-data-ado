@@ -22,5 +22,12 @@ steps:
     echo sudo
     sudo apt update
     sudo apt install gnupg ca-certificates curl wget software-properties-common apt-transport-https lsb-release -y
-  displayName: 'Run a multi-line script'
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc |
+    gpg --dearmor |
+    sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+    sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/prod.list)"
+    sudo apt update
+    sudo apt install -y azdata-cli
+  displayName: 'install azdata'
+
 
