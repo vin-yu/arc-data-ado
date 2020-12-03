@@ -27,7 +27,13 @@ steps:
     sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
     sudo add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/18.04/prod.list)"
     sudo apt update
-    sudo apt install -y azdata-cli
+    sudo apt install -y azdata-cli mssql-tools
   displayName: 'install azdata'
+
+- script: azdata --version
+  displayName: 'check azdata version'
+
+- script: /opt/mssql-tools/bin/sqlcmd -?
+  displayName: 'check sqlcmd version'
 
 
