@@ -36,10 +36,7 @@ steps:
 - script: /opt/mssql-tools/bin/sqlcmd -?
   displayName: 'check sqlcmd version'
 
-- script: /opt/mssql-tools/bin/sqlcmd -?
-  displayName: 'check sqlcmd version'
-
-- script: /opt/mssql-tools/bin/sqlcmd -U$(USERNAME)-P$(PASSWORD) -S20.151.26.165 -Q "Select @@version"
-  displayName: 'check sqlcmd version'
+- script: /opt/mssql-tools/bin/sqlcmd -U$(USERNAME) -P$(PASSWORD) -S20.151.26.165 -Q "Select @@version"
+  displayName: 'sample query'
 
 
