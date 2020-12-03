@@ -19,6 +19,7 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
+    echo sudo
     sudo apt-get update
     sudo apt-get install gnupg ca-certificates curl wget software-properties-common apt-transport-https lsb-release -y
   displayName: 'Run a multi-line script'
