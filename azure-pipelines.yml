@@ -36,6 +36,10 @@ steps:
 - script: /opt/mssql-tools/bin/sqlcmd -?
   displayName: 'check sqlcmd version'
 
+- script: |
+    docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=StrongPASSWORD1' --name 'sql1' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+  displayName: 'dummy test with mssql'
+
 - script: /opt/mssql-tools/bin/sqlcmd -U$(USERNAME) -P$(PASSWORD) -S20.151.26.165 -Q "Select @@version"
   displayName: 'sample query'
 
