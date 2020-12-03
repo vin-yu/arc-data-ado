@@ -14,8 +14,12 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    sudo apt-get update
-    sudo apt-get install gnupg ca-certificates curl wget software-properties-common apt-transport-https lsb-release -y
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- script: |
+    apt-get update
+    apt-get install gnupg ca-certificates curl wget software-properties-common apt-transport-https lsb-release -y
+  displayName: 'Run a multi-line script'
 
